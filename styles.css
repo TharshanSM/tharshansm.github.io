@@ -442,6 +442,9 @@ img { max-width: 100%; display: block; }
 }
 .edu__degree { font-size: 1.15rem; margin-bottom: 0.4rem; }
 .edu__school { color: var(--text-mut); }
+.edu__school a { transition: color 0.2s; }
+.edu__school a:hover { color: var(--accent-2); }
+.edu__meta { color: var(--text-dim); font-size: 0.88rem; margin-top: 0.35rem; }
 .strengths { display: grid; gap: 1.1rem; }
 .strength {
   background: var(--surface); border: 1px solid var(--border);
