@@ -386,8 +386,12 @@ img { max-width: 100%; display: block; }
 }
 .cert:hover { transform: translateY(-6px); border-color: var(--accent); }
 .cert__icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
-.cert h3 { font-size: 1.1rem; margin-bottom: 0.35rem; }
-.cert p { color: var(--accent-2); font-size: 0.9rem; font-weight: 500; }
+.cert h3 { font-size: 1.08rem; margin-bottom: 0.35rem; }
+.cert__eyebrow {
+  color: var(--accent-2); font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 0.4rem;
+}
 .cert__verify {
   display: inline-block; margin-top: 0.9rem;
   font-size: 0.8rem; font-weight: 600; color: var(--text-dim);
@@ -396,6 +400,38 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s, border-color 0.2s;
 }
 .cert:hover .cert__verify { color: var(--accent-2); border-color: var(--accent); }
+
+/* ---------- Articles ---------- */
+.article {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.8rem 2rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+.article:hover { transform: translateY(-4px); border-color: var(--accent); }
+.article__icon {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--text);
+}
+.article__meta {
+  font-size: 0.82rem; color: var(--text-dim); font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.article__title { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.article__desc { color: var(--text-mut); font-size: 0.97rem; margin-bottom: 1rem; max-width: 46rem; }
+.article__cta {
+  font-size: 0.88rem; font-weight: 600; color: var(--accent-2);
+  white-space: nowrap; align-self: center;
+}
+@media (max-width: 700px) {
+  .article { grid-template-columns: 1fr; }
+  .article__cta { align-self: start; }
+}
 
 /* ---------- Two-column (edu + strengths) ---------- */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
