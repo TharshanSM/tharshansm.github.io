@@ -351,6 +351,7 @@ img { max-width: 100%; display: block; }
   content: ""; position: absolute; left: 0; top: 0.6em;
   width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
 }
+.tl__points strong { color: var(--text); font-weight: 600; }
 
 /* ---------- Skills ---------- */
 .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
