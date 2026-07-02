@@ -343,6 +343,8 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .tl__company { color: var(--text-mut); font-weight: 500; margin-bottom: 1rem; }
+.tl__company a { transition: color 0.2s; }
+.tl__company a:hover { color: var(--accent-2); }
 .tl__points { list-style: none; display: grid; gap: 0.65rem; }
 .tl__points li {
   position: relative; padding-left: 1.4rem; color: var(--text-mut); font-size: 0.97rem;
