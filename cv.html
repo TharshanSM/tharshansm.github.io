@@ -4,9 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ugatharshan Murugesu — CV</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --ink:      #1a1f28;
@@ -23,7 +20,7 @@
   @page { size: A4; margin: 11mm 0 12mm; }
 
   html, body { background: #f0f0f0; }
-  body { font-family: "Inter", system-ui, sans-serif; color: var(--ink); font-size: 9.3pt; line-height: 1.5; }
+  body { font-family: "Calibri", "Segoe UI", Arial, sans-serif; color: var(--ink); font-size: 10.2pt; line-height: 1.45; }
 
   .page {
     width: 210mm; min-height: 297mm;
@@ -35,8 +32,9 @@
     .page { margin: 0; width: auto; min-height: auto; }
   }
 
-  h1, h2, h3 { font-family: "Sora", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: "Calibri", "Segoe UI", Arial, sans-serif; }
   a { color: inherit; text-decoration: none; }
+  .icon { width: 3.8mm; height: 3.8mm; fill: var(--copper); vertical-align: -0.7mm; margin-right: 0.8mm; }
 
   /* ---------- Header ---------- */
   .head { display: flex; align-items: center; gap: 8mm; padding-bottom: 5mm; border-bottom: 2.5px solid var(--copper); }
@@ -44,9 +42,8 @@
   .head__main { flex: 1; }
   .head__name { font-size: 24pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
   .head__name span { color: var(--copper); }
-  .head__role { font-size: 11.5pt; font-weight: 600; color: var(--ink-soft); margin-top: 2mm; }
-  .head__contact { margin-top: 3mm; font-size: 8.9pt; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 1mm 4.5mm; }
-  .head__contact strong { color: var(--copper); font-weight: 600; }
+  .head__role { font-size: 12pt; font-weight: 600; color: var(--ink-soft); margin-top: 2mm; }
+  .head__contact { margin-top: 3mm; font-size: 9.6pt; color: var(--ink-soft); display: flex; flex-wrap: wrap; align-items: center; gap: 1.2mm 5mm; }
 
   /* ---------- Layout ---------- */
   .body { display: grid; grid-template-columns: 1fr 58mm; gap: 8mm; margin-top: 5mm; }
@@ -54,7 +51,7 @@
   /* ---------- Sections ---------- */
   .sec { margin-bottom: 5.5mm; }
   .sec__title {
-    font-size: 10pt; font-weight: 700; color: var(--copper);
+    font-size: 10.8pt; font-weight: 700; color: var(--copper);
     text-transform: uppercase; letter-spacing: 0.09em;
     padding-bottom: 1.5mm; border-bottom: 1px solid var(--line); margin-bottom: 3mm;
   }
@@ -63,9 +60,9 @@
   /* ---------- Experience ---------- */
   .job { margin-bottom: 4.5mm; break-inside: avoid; }
   .job__top { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
-  .job__role { font-size: 10.3pt; font-weight: 700; }
-  .job__period { font-size: 8pt; font-weight: 600; color: var(--copper); white-space: nowrap; }
-  .job__org { font-size: 8.8pt; color: var(--ink-dim); font-weight: 500; margin: 0.5mm 0 1.8mm; }
+  .job__role { font-size: 11.2pt; font-weight: 700; }
+  .job__period { font-size: 8.8pt; font-weight: 700; color: var(--copper); white-space: nowrap; }
+  .job__org { font-size: 9.6pt; color: var(--ink-dim); font-weight: 500; margin: 0.5mm 0 1.8mm; }
   .job ul { list-style: none; }
   .job li { position: relative; padding-left: 4.5mm; margin-bottom: 1.4mm; color: var(--ink-soft); }
   .job li::before { content: ""; position: absolute; left: 0.5mm; top: 0.62em; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: var(--copper-2); }
@@ -75,21 +72,21 @@
   .side .sec { background: var(--tint); border-radius: 3mm; padding: 4mm 4.5mm; }
   .side .sec__title { border-bottom-color: #eadfd2; }
 
-  .edu__deg { font-weight: 700; font-size: 9.5pt; }
+  .edu__deg { font-weight: 700; font-size: 10.4pt; }
   .edu__sch { color: var(--ink-soft); margin-top: 0.8mm; }
-  .edu__meta { color: var(--ink-dim); font-size: 8.3pt; margin-top: 0.8mm; }
+  .edu__meta { color: var(--ink-dim); font-size: 9.2pt; margin-top: 0.8mm; }
 
   .cert { margin-bottom: 2.4mm; }
   .cert__name { font-weight: 600; }
-  .cert__sub { font-size: 8pt; color: var(--ink-dim); }
+  .cert__link { color: var(--copper); font-weight: 700; }
 
   .skillgroup { margin-bottom: 2.6mm; }
-  .skillgroup h3 { font-size: 8.6pt; font-weight: 700; color: var(--ink); margin-bottom: 0.8mm; }
-  .skillgroup p { color: var(--ink-soft); font-size: 8.6pt; }
+  .skillgroup h3 { font-size: 9.6pt; font-weight: 700; color: var(--ink); margin-bottom: 0.8mm; }
+  .skillgroup p { color: var(--ink-soft); font-size: 9.4pt; }
 
   .strength { margin-bottom: 2.2mm; }
-  .strength h3 { font-size: 8.8pt; font-weight: 700; color: var(--ink); }
-  .strength p { color: var(--ink-soft); font-size: 8.3pt; }
+  .strength h3 { font-size: 9.8pt; font-weight: 700; color: var(--ink); }
+  .strength p { color: var(--ink-soft); font-size: 9.2pt; }
 </style>
 </head>
 <body>
@@ -102,11 +99,14 @@
       <h1 class="head__name">Ugatharshan <span>Murugesu</span></h1>
       <p class="head__role">IFS Developer &amp; Technical Consultant | Software Engineer</p>
       <div class="head__contact">
-        <span><strong>☏</strong> +971 55 335 0084</span>
-        <span><strong>✉</strong> Ugatharshan95@gmail.com</span>
-        <span><strong>in</strong> linkedin.com/in/tharshansm</span>
-        <span><strong>◈</strong> tharshansm.github.io</span>
-        <span><strong>◆</strong> Dubai, United Arab Emirates</span>
+        <a href="tel:+971553350084">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+971 55 335 0084</a>
+        <a href="mailto:Ugatharshan95@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>Ugatharshan95@gmail.com</a>
+        <a href="https://www.linkedin.com/in/tharshansm/">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.75H5.67v8.59h2.67zM7 8.48a1.56 1.56 0 1 0 0-3.12 1.56 1.56 0 0 0 0 3.12zm11.34 9.86v-4.7c0-2.52-1.34-3.69-3.13-3.69-1.45 0-2.1.8-2.46 1.36V9.75h-2.67c.04.75 0 8.59 0 8.59h2.67v-4.8c0-.26.02-.51.1-.7.19-.48.63-.98 1.37-.98.96 0 1.45.74 1.45 1.83v4.65h2.67z"/></svg>linkedin.com/in/tharshansm</a>
+        <span>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Dubai, United Arab Emirates</span>
       </div>
     </div>
   </header>
@@ -185,13 +185,13 @@
       <section class="sec">
         <h2 class="sec__title">Certifications</h2>
         <div class="cert">
-          <p class="cert__name">IFS Certified Practitioner - Integrations Developer (IFS Cloud)</p>
+          <p class="cert__name"><a href="https://www.credly.com/badges/8c4798ab-824a-4385-b470-038159c6f7d4">IFS Certified Practitioner - Integrations Developer (IFS Cloud) <span class="cert__link">↗</span></a></p>
         </div>
         <div class="cert">
-          <p class="cert__name">IFS Certified Practitioner - IFS Cloud Web Developer</p>
+          <p class="cert__name"><a href="https://www.credly.com/badges/fb985f75-4e7b-4ec4-93df-4994c8353b1c">IFS Certified Practitioner - IFS Cloud Web Developer <span class="cert__link">↗</span></a></p>
         </div>
         <div class="cert">
-          <p class="cert__name">IFS Certified Practitioner - Technical Consultant (IFS Cloud)</p>
+          <p class="cert__name"><a href="https://www.credly.com/badges/476f7545-c2e2-4aa1-a21a-3a63f9195d34">IFS Certified Practitioner - Technical Consultant (IFS Cloud) <span class="cert__link">↗</span></a></p>
         </div>
       </section>
 
