@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ugatharshan Murugesu — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:      #1a1f28;
+    --ink-soft: #4a5262;
+    --ink-dim:  #7a8394;
+    --copper:   #c05f22;
+    --copper-2: #e8843c;
+    --line:     #e4e0da;
+    --paper:    #ffffff;
+    --tint:     #faf6f1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4; margin: 0; }
+
+  html, body { background: #f0f0f0; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--ink); font-size: 9.3pt; line-height: 1.5; }
+
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 auto; background: var(--paper);
+    padding: 13mm 14mm 14mm;
+  }
+  @media print {
+    html, body { background: var(--paper); }
+    .page { margin: 0; width: auto; min-height: auto; }
+  }
+
+  h1, h2, h3 { font-family: "Sora", system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Header ---------- */
+  .head { display: flex; align-items: center; gap: 8mm; padding-bottom: 5mm; border-bottom: 2.5px solid var(--copper); }
+  .head__photo { width: 30mm; height: 30mm; border-radius: 6mm; object-fit: cover; flex-shrink: 0; }
+  .head__main { flex: 1; }
+  .head__name { font-size: 21pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .head__name span { color: var(--copper); }
+  .head__role { font-size: 10.5pt; font-weight: 600; color: var(--ink-soft); margin-top: 1.5mm; }
+  .head__contact { margin-top: 2.5mm; font-size: 8.3pt; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 1mm 4mm; }
+  .head__contact strong { color: var(--copper); font-weight: 600; }
+
+  /* ---------- Layout ---------- */
+  .body { display: grid; grid-template-columns: 1fr 58mm; gap: 8mm; margin-top: 5mm; }
+
+  /* ---------- Sections ---------- */
+  .sec { margin-bottom: 5.5mm; }
+  .sec__title {
+    font-size: 10pt; font-weight: 700; color: var(--copper);
+    text-transform: uppercase; letter-spacing: 0.09em;
+    padding-bottom: 1.5mm; border-bottom: 1px solid var(--line); margin-bottom: 3mm;
+  }
+  .summary { color: var(--ink-soft); }
+
+  /* ---------- Experience ---------- */
+  .job { margin-bottom: 4.5mm; break-inside: avoid; }
+  .job__top { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+  .job__role { font-size: 10.3pt; font-weight: 700; }
+  .job__period { font-size: 8pt; font-weight: 600; color: var(--copper); white-space: nowrap; }
+  .job__org { font-size: 8.8pt; color: var(--ink-dim); font-weight: 500; margin: 0.5mm 0 1.8mm; }
+  .job ul { list-style: none; }
+  .job li { position: relative; padding-left: 4.5mm; margin-bottom: 1.4mm; color: var(--ink-soft); }
+  .job li::before { content: ""; position: absolute; left: 0.5mm; top: 0.62em; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: var(--copper-2); }
+  .job li strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Sidebar ---------- */
+  .side .sec { background: var(--tint); border-radius: 3mm; padding: 4mm 4.5mm; }
+  .side .sec__title { border-bottom-color: #eadfd2; }
+
+  .edu__deg { font-weight: 700; font-size: 9.5pt; }
+  .edu__sch { color: var(--ink-soft); margin-top: 0.8mm; }
+  .edu__meta { color: var(--ink-dim); font-size: 8.3pt; margin-top: 0.8mm; }
+
+  .cert { margin-bottom: 2.4mm; }
+  .cert__name { font-weight: 600; }
+  .cert__sub { font-size: 8pt; color: var(--ink-dim); }
+
+  .skillgroup { margin-bottom: 2.6mm; }
+  .skillgroup h3 { font-size: 8.6pt; font-weight: 700; color: var(--ink); margin-bottom: 0.8mm; }
+  .skillgroup p { color: var(--ink-soft); font-size: 8.6pt; }
+
+  .strength { margin-bottom: 2.2mm; }
+  .strength h3 { font-size: 8.8pt; font-weight: 700; color: var(--ink); }
+  .strength p { color: var(--ink-soft); font-size: 8.3pt; }
+
+  .pub__title { font-weight: 600; }
+  .pub__meta { font-size: 8.3pt; color: var(--ink-dim); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= HEADER ================= -->
+  <header class="head">
+    <img class="head__photo" src="assets/profile.jpg" alt="Ugatharshan Murugesu" />
+    <div class="head__main">
+      <h1 class="head__name">Ugatharshan <span>Murugesu</span></h1>
+      <p class="head__role">IFS Developer &amp; Technical Consultant | Software Engineer</p>
+      <div class="head__contact">
+        <span><strong>☏</strong> +971 55 335 0084</span>
+        <span><strong>✉</strong> Ugatharshan95@gmail.com</span>
+        <span><strong>in</strong> linkedin.com/in/tharshansm</span>
+        <span><strong>◈</strong> tharshansm.github.io</span>
+        <span><strong>◆</strong> Dubai, United Arab Emirates</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <!-- ================= MAIN ================= -->
+    <main>
+      <section class="sec">
+        <h2 class="sec__title">Professional Summary</h2>
+        <p class="summary">
+          A strategic, customer-focused Software Engineer with over 5 years of experience developing applications
+          that streamline operations, reduce manual effort, and support key business objectives. Proven ability to
+          lead within cross-functional teams — defining project estimations, mentoring on code standards, and
+          maintaining a focus on delivering high-quality products. Skilled in IFS integrations, development, and
+          configurations, with delivery experience spanning clients across Europe, the Middle East, and Asia.
+        </p>
+      </section>
+
+      <section class="sec">
+        <h2 class="sec__title">Professional Experience</h2>
+
+        <article class="job">
+          <div class="job__top">
+            <h3 class="job__role">IFS Developer &amp; Technical Consultant</h3>
+            <span class="job__period">Feb 2026 – Present</span>
+          </div>
+          <p class="job__org">Trinity Mechanical Services LLC · Dubai, UAE</p>
+          <ul>
+            <li>Lead <strong>report development across IFS</strong> — analysing customer requirements and building core business documents such as Sales Quotation and Customer Order reports, alongside enhancements to existing reports, using <strong>IFS Report Designer and IFS Report Studio</strong>.</li>
+            <li>Partner with the client on <strong>configuration decisions</strong> — assessing whether a standard or alternative approach fits before committing to a new configuration, keeping the IFS environment lean and upgrade-friendly.</li>
+            <li>Develop and deliver <strong>CRIMs</strong> (Configurations, Reports, Integrations, Modifications) and <strong>IFS Workflows</strong> tailored to customer requirements.</li>
+            <li>Stay current with every new IFS release and actively engage with the <strong>IFS community</strong> — solving problems and continuously sharpening skills.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job__top">
+            <h3 class="job__role">IFS Developer &amp; Technical Consultant &amp; Novacura Flow Developer</h3>
+            <span class="job__period">Oct 2022 – Jan 2026</span>
+          </div>
+          <p class="job__org">Novacura AB (IFS Partner)</p>
+          <ul>
+            <li>Provided global support for <strong>3 Nordic IFS Cloud clients</strong> across the Supply Chain and Manufacturing modules — delivering modifications, configurations, custom reports, and targeted integrations.</li>
+            <li>Delivered a full IFS version upgrade from <strong>21R1 to 25R1 within 3 months</strong> — analysing impacted customisations with IFS Update Analyser, upgrading modified code, and handling post-deployment rebasing to verify every customisation on the new release.</li>
+            <li>Digitalised an IFS Applications 10 client's <strong>entire day-to-day supply chain operation</strong> — purchase requisitions, purchase orders, manual supplier invoices (MSI), and goods receiving — as task-focused apps on the Novacura Flow Classic low-code platform, <strong>cutting processing time by one-third</strong>.</li>
+            <li>Extended the same solution with <strong>IFS Document Management</strong> — users view, download, upload, and delete IFS documents directly from their Flow apps.</li>
+            <li>Built a centralised <strong>Project Management portal</strong> on Novacura Portal integrated with IFS OData services — consolidating project details, activities, and operations into one place, <strong>reducing managerial workload by ~50%</strong>.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job__top">
+            <h3 class="job__role">Software Engineer Intern</h3>
+            <span class="job__period">Mar 2021 – Sep 2022</span>
+          </div>
+          <p class="job__org">Elzian Agro &amp; Kangaroo Cabs</p>
+          <ul>
+            <li>Designed and implemented a <strong>multi-provider social login</strong> (Google, Facebook, LinkedIn), reducing barriers to entry and improving the onboarding experience.</li>
+            <li>Architected a <strong>secure user registration and login module</strong> for a new mobile application from the ground up — compliant with code standards and QA-approved.</li>
+            <li>Developed backend features with <strong>Node.js (Express.js) and MongoDB</strong> for a live business web application, contributing to its modernisation.</li>
+            <li>Contributed actively in Agile retrospectives and stakeholder demos, proposing data-driven enhancements.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side">
+      <section class="sec">
+        <h2 class="sec__title">Education</h2>
+        <p class="edu__deg">BSc in Information Technology</p>
+        <p class="edu__sch">Sri Lanka Institute of Information Technology (SLIIT)</p>
+        <p class="edu__meta">Malabe, Sri Lanka · Graduated 2024</p>
+      </section>
+
+      <section class="sec">
+        <h2 class="sec__title">Certifications</h2>
+        <div class="cert">
+          <p class="cert__name">IFS Certified Practitioner — Integrations Developer (IFS Cloud)</p>
+        </div>
+        <div class="cert">
+          <p class="cert__name">IFS Certified Practitioner — IFS Cloud Web Developer</p>
+        </div>
+        <div class="cert">
+          <p class="cert__name">IFS Certified Practitioner — Technical Consultant (IFS Cloud)</p>
+        </div>
+        <p class="cert__sub">All verifiable on Credly.</p>
+      </section>
+
+      <section class="sec">
+        <h2 class="sec__title">Skills</h2>
+        <div class="skillgroup">
+          <h3>IFS Ecosystem</h3>
+          <p>IFS Cloud · IFS Applications 10 · Configurations · Reports · Report Designer · Report Studio · Integrations · Modifications · Business Process Automation (Workflows) · IFS Release &amp; Service Upgrade (Update Analyser) · SCM &amp; HCM modules</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Novacura Flow</h3>
+          <p>Flow Classic · Connect · Portal · Flow Studio · OData integrations</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Programming</h3>
+          <p>JavaScript (Node.js, Express.js) · Java</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Databases</h3>
+          <p>Oracle · MS SQL · MongoDB · PostgreSQL</p>
+        </div>
+        <div class="skillgroup">
+          <h3>Other</h3>
+          <p>Agile Methodologies · Git</p>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 class="sec__title">Strengths</h2>
+        <div class="strength">
+          <h3>Consultative Solution Design</h3>
+          <p>Checks whether standard functionality fits before building custom — keeping systems maintainable and upgrade-friendly.</p>
+        </div>
+        <div class="strength">
+          <h3>End-to-End Delivery Ownership</h3>
+          <p>Owns requirement analysis, estimation, development, and post-deployment verification.</p>
+        </div>
+        <div class="strength">
+          <h3>User-Centric Product Thinking</h3>
+          <p>Translates user feedback into actionable features that enhance satisfaction.</p>
+        </div>
+        <div class="strength">
+          <h3>Data-Driven Decision Making</h3>
+          <p>Uses data to inform strategy and improve product performance.</p>
+        </div>
+        <div class="strength">
+          <h3>Mentoring &amp; Knowledge Sharing</h3>
+          <p>Mentors on code standards and shares IFS knowledge through technical writing.</p>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2 class="sec__title">Publications</h2>
+        <p class="pub__title">Access IFS RESTful services using Postman</p>
+        <p class="pub__meta">Medium · Feb 2025 · medium.com/@TharshanSM</p>
+      </section>
+    </aside>
+  </div>
+</div>
+</body>
+</html>
