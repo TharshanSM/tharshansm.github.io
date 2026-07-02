@@ -388,7 +388,7 @@ img { max-width: 100%; display: block; }
   transition: transform 0.3s var(--ease), border-color 0.3s;
 }
 .cert:hover { transform: translateY(-6px); border-color: var(--accent); }
-.cert__icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+.cert__icon { color: var(--accent-2); margin-bottom: 0.8rem; display: flex; justify-content: center; }
 .cert h3 { font-size: 1.08rem; margin-bottom: 0.35rem; }
 .cert__eyebrow {
   color: var(--accent-2); font-size: 0.78rem; font-weight: 600;
