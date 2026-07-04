@@ -501,7 +501,7 @@ a.contact__item:hover { transform: translateY(-3px); border-color: var(--accent)
   width: 42px; height: 42px; border-radius: 12px;
   background: var(--accent-soft); color: var(--accent-2);
 }
-.contact__value { color: var(--text); font-weight: 500; word-break: break-word; min-width: 0; }
+.contact__value { color: var(--text); font-weight: 500; overflow-wrap: break-word; min-width: 0; }
 
 /* ---------- Footer ---------- */
 .footer {
