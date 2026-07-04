@@ -75,6 +75,42 @@
     sections.forEach((sec) => spy.observe(sec));
   }
 
+  /* --- Stat count-up animation --- */
+  const statNums = document.querySelectorAll(".stat__num");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const animateStat = (el) => {
+    // Only pure numbers (with optional +) count up; text tiles like 21R1→25R1 stay put
+    const match = el.textContent.trim().match(/^(\d+)(\+?)$/);
+    if (!match) return;
+    const target = parseInt(match[1], 10);
+    const suffix = match[2];
+    const duration = 1400;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  if (!reduceMotion && "IntersectionObserver" in window && statNums.length) {
+    const statIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateStat(entry.target);
+            statIo.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    statNums.forEach((el) => statIo.observe(el));
+  }
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
