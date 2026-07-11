@@ -302,16 +302,8 @@ img { max-width: 100%; display: block; }
 .stat__label { font-size: 0.85rem; color: var(--text-mut); }
 
 /* ---------- About ---------- */
-.about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; }
+.about { max-width: 48rem; }
 .about__body p { color: var(--text-mut); margin-bottom: 1.1rem; font-size: 1.05rem; }
-.about__highlights { list-style: none; display: grid; gap: 0.9rem; }
-.about__highlights li {
-  background: var(--surface); border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  padding: 0.9rem 1.1rem; border-radius: var(--radius-sm);
-  font-size: 0.95rem; color: var(--text-mut);
-}
-.about__highlights strong { color: var(--text); }
 
 /* ---------- Timeline ---------- */
 .timeline { position: relative; padding-left: 2rem; }
@@ -529,7 +521,7 @@ a.contact__item:hover { transform: translateY(-3px); border-color: var(--accent)
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__socials { justify-content: center; }
   .hero__visual { order: -1; }
-  .about, .two-col { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .skills { grid-template-columns: 1fr; }
   .certs { grid-template-columns: 1fr; }
