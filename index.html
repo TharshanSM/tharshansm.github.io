@@ -402,19 +402,21 @@
           <span class="project__status">In development</span>
         </div>
         <p class="project__desc">
-          A local app that restores basic data after an IFS environment refresh. It connects to two IFS Cloud
-          environments at once over OAuth — reading records from a source (say UAT) and posting them into a
-          target (a DEV or CFG environment) — so the data you need back after a refresh doesn't have to be
-          keyed in by hand.
+          A local app I built to restore basic data after an IFS environment refresh. It connects to two IFS
+          Cloud environments at once via OAuth — pulling records from a source (say UAT) and pushing them into
+          a target (DEV or CFG) — so you don't have to manually re-key everything you lost after a refresh.
         </p>
         <p class="project__desc">
-          The whole flow is driven by the IFS data dictionary: pick a component, pick an entity, and the
-          projections that expose it are listed with their allowed operations. Records are cleaned against
-          the projection's OpenAPI document before posting, and every row comes back with its own success or
-          error result. Before anything is written it runs a dependency pre-flight — checking that referenced
-          values like customers, sites and delivery terms actually exist in the target, and naming what's
-          missing so you can migrate that first. A safety lock refuses to write to anything that isn't a
-          DEV or CFG environment, so UAT and production can't be touched even by a hand-crafted request.
+          The whole thing runs off the IFS data dictionary: you pick a component, pick an entity, and it shows
+          you which projections expose it along with their allowed operations. Before posting, records get
+          validated against the projection's OpenAPI spec, and each row comes back with its own success or
+          error result so you know exactly what went through and what didn't.
+        </p>
+        <p class="project__desc">
+          It also runs a dependency check before writing anything — making sure referenced values like
+          customers, sites, and delivery terms actually exist in the target, and telling you what's missing so
+          you can migrate that first. And there's a safety lock built in that only allows writes to DEV or CFG
+          environments — so UAT and production stay protected, even if someone tries a manual request.
         </p>
         <div class="chips">
           <span class="chip">Node.js</span>
@@ -424,6 +426,7 @@
           <span class="chip">OAuth 2.0</span>
           <span class="chip">IAM Client</span>
         </div>
+        <p class="project__note">🎬 Demo video coming soon.</p>
       </div>
     </section>
 
