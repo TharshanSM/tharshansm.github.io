@@ -3,3 +3,11 @@ assets/graduation.jpg
 
 # Backup of the pre-rebuild CV (local only)
 assets/Ugatharshan_Murugesu_CV_original.pdf
+
+# Raw screen recordings — NEVER commit. May contain customer data / hostnames.
+# Only a reviewed, redacted demo clip may be added, explicitly.
+assets/*.mp4
+assets/*.mkv
+assets/*.mov
+assets/*.webm
+!assets/ifs-debug-console-demo.mp4
