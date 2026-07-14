@@ -428,6 +428,30 @@ img { max-width: 100%; display: block; }
   .article__cta { align-self: start; }
 }
 
+/* ---------- Projects ---------- */
+.project {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.8rem 2rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+.project:hover { transform: translateY(-4px); border-color: var(--accent); }
+.project__top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 0.7rem;
+}
+.project__title { font-size: 1.25rem; }
+.project__status {
+  font-size: 0.78rem; font-weight: 600; color: var(--accent-2);
+  border: 1px solid var(--accent); border-radius: 999px;
+  padding: 0.3rem 0.85rem; white-space: nowrap;
+}
+.project__desc { color: var(--text-mut); font-size: 0.97rem; margin-bottom: 1rem; max-width: 50rem; }
+.project__media {
+  width: 100%; margin-top: 1.2rem;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+}
+.project__note { font-size: 0.85rem; color: var(--text-dim); margin-top: 1rem; }
+
 /* ---------- Two-column (edu + strengths) ---------- */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .edu {
