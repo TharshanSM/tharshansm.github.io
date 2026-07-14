@@ -10,4 +10,4 @@ assets/*.mp4
 assets/*.mkv
 assets/*.mov
 assets/*.webm
-!assets/ifs-debug-console-demo.mp4
+!assets/ifs-debug-console-demo-v2.mp4
