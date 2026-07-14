@@ -406,8 +406,8 @@
           </div>
           <p class="project__desc">
             A local app I built to restore basic data after an IFS environment refresh. It connects to two IFS
-            Cloud environments at once via OAuth — pulling records from a source (say UAT) and pushing them into
-            a target (DEV or CFG) — so you don't have to manually re-key everything you lost after a refresh.
+            Cloud environments at once via OAuth, pulling records from a source (say UAT) and pushing them into
+            a target (DEV or CFG), so you don't have to manually re-key everything you lost after a refresh.
           </p>
           <p class="project__desc">
             The whole thing runs off the IFS data dictionary: you pick a component, pick an entity, and it shows
@@ -416,10 +416,10 @@
             error result so you know exactly what went through and what didn't.
           </p>
           <p class="project__desc">
-            It also runs a dependency check before writing anything — making sure referenced values like
+            It also runs a dependency check before writing anything, making sure referenced values like
             customers, sites, and delivery terms actually exist in the target, and telling you what's missing so
             you can migrate that first. And there's a safety lock built in that only allows writes to DEV or CFG
-            environments — so UAT and production stay protected, even if someone tries a manual request.
+            environments, so UAT and production stay protected, even if someone tries a manual request.
           </p>
           <div class="chips">
             <span class="chip">Node.js</span>
