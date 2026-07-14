@@ -453,24 +453,39 @@ img { max-width: 100%; display: block; }
 }
 .project__desc { color: var(--text-mut); font-size: 0.97rem; margin-bottom: 1rem; max-width: 50rem; }
 .project__play {
-  display: flex; align-items: center; gap: 1rem;
-  margin-top: 1.3rem; padding: 0.9rem 1.4rem 0.9rem 1rem;
-  background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: var(--radius-sm); cursor: pointer; text-align: left;
-  color: var(--text); font: inherit;
-  transition: transform 0.25s var(--ease), border-color 0.25s, background 0.25s;
+  position: relative; display: block; width: min(560px, 100%);
+  margin-top: 1.3rem; padding: 0;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  overflow: hidden; cursor: pointer; background: none;
+  text-align: left; color: var(--text); font: inherit;
+  transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
 }
 .project__play:hover {
-  transform: translateY(-2px); border-color: var(--accent);
-  background: var(--accent-soft);
+  transform: translateY(-3px); border-color: var(--accent);
+  box-shadow: var(--shadow);
 }
+.project__play img { display: block; width: 100%; }
 .project__play-icon {
-  display: grid; place-items: center; flex-shrink: 0;
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--accent); color: #fff; font-size: 0.9rem; padding-left: 3px;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -65%);
+  display: grid; place-items: center;
+  width: 58px; height: 58px; border-radius: 50%; padding-left: 4px;
+  background: rgba(232, 132, 60, 0.92); color: #fff; font-size: 1.15rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s var(--ease), background 0.25s;
 }
-.project__play strong { display: block; font-size: 0.98rem; font-weight: 600; }
-.project__play small { display: block; color: var(--text-dim); font-size: 0.82rem; margin-top: 0.15rem; }
+.project__play:hover .project__play-icon {
+  transform: translate(-50%, -65%) scale(1.1);
+  background: var(--accent);
+}
+.project__play-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.6rem 1.1rem 0.75rem;
+  background: linear-gradient(transparent, rgba(5, 7, 10, 0.92));
+  font-size: 0.9rem;
+}
+.project__play-caption strong { font-weight: 600; }
+.project__play-caption small { display: block; color: var(--text-dim); font-size: 0.78rem; margin-top: 0.2rem; }
 
 /* ---------- Video lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 1.5rem; }
