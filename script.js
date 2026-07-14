@@ -140,6 +140,13 @@
         openLightbox(btn.dataset.video, btn.dataset.poster)
       )
     );
+    // Deep link: /#demo (e.g. from the CV) scrolls to Projects and opens the video
+    if (window.location.hash === "#demo" && playBtns.length) {
+      const btn = playBtns[0];
+      document.getElementById("projects")?.scrollIntoView();
+      setTimeout(() => openLightbox(btn.dataset.video, btn.dataset.poster), 400);
+    }
+
     lbClose.addEventListener("click", closeLightbox);
     lightbox.addEventListener("click", (e) => {
       if (e.target.hasAttribute("data-close")) closeLightbox();

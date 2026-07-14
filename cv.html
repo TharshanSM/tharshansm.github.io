@@ -50,6 +50,7 @@
 
   /* ---------- Sections ---------- */
   .sec { margin-bottom: 5.5mm; }
+  .sec--keep { break-inside: avoid; page-break-inside: avoid; }
   .sec__title {
     font-size: 10.8pt; font-weight: 700; color: var(--copper);
     text-transform: uppercase; letter-spacing: 0.09em;
@@ -78,6 +79,9 @@
   .cert { margin-bottom: 2.4mm; }
   .cert__name { font-weight: 600; }
   .cert__link { color: var(--copper); font-weight: 700; }
+  .proj__link { color: var(--copper); font-weight: 600; }
+  .proj__status { color: var(--ink-dim); font-size: 8.6pt; margin-bottom: 1.2mm; }
+  .proj__demo { margin-top: 1.5mm; }
 
   .skillgroup { margin-bottom: 2.6mm; }
   .skillgroup h3 { font-size: 9.6pt; font-weight: 700; color: var(--ink); margin-bottom: 0.8mm; }
@@ -169,6 +173,7 @@
           </ul>
         </article>
       </section>
+
     </main>
 
     <!-- ================= SIDEBAR ================= -->
@@ -229,9 +234,22 @@
         </div>
       </section>
 
-      <section class="sec">
-        <h2 class="sec__title">Languages</h2>
-        <p class="edu__sch">English · Tamil · Sinhala</p>
+      <section class="sec sec--keep">
+        <h2 class="sec__title">Projects</h2>
+        <div class="skillgroup">
+          <h3>IFS Debug Extension</h3>
+          <p class="proj__status">Personal project · In development</p>
+          <p>
+            A Chrome extension I built in my spare time that adds a debug side panel to IFS Cloud. Signs in
+            via OAuth through an IAM client and runs entirely on IFS REST services. Includes an API console,
+            a field inspector that shows the real database column and view behind any field on screen, a
+            read-only SQL editor, a network trace that surfaces the PL/SQL error stack behind failed OData
+            calls, and a projection tracer.
+          </p>
+          <p class="proj__demo">
+            Demo: <a class="proj__link" href="https://tharshansm.github.io/#demo">tharshansm.github.io/#demo</a>
+          </p>
+        </div>
       </section>
 
     </aside>
