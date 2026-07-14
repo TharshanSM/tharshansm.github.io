@@ -362,73 +362,75 @@
         <span class="section__kicker">05 — Projects</span>
         <h2 class="section__title">What I build in my spare time</h2>
       </div>
-      <div class="project reveal">
-        <div class="project__top">
-          <h3 class="project__title">IFS Debug Extension</h3>
-          <span class="project__status">In development</span>
+      <div class="projects">
+        <div class="project reveal">
+          <div class="project__top">
+            <h3 class="project__title">IFS Debug Extension</h3>
+            <span class="project__status">In development</span>
+          </div>
+          <p class="project__desc">
+            A Chrome extension I built in my spare time (with some AI help along the way) that adds a debug
+            side panel to IFS Cloud. It signs in via OAuth (Authorization Code + PKCE) through an IAM client
+            and runs entirely on IFS REST services.
+          </p>
+          <p class="project__desc">
+            It includes an API console with metadata-driven suggestions, a field inspector that shows the
+            actual database column and view behind any field on screen, a read-only SQL editor, a network
+            trace that surfaces the real PL/SQL error stack behind failed OData calls, and a projection
+            tracer that maps out every sub-page tied to a record.
+          </p>
+          <div class="chips">
+            <span class="chip">Chrome Extension</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">IFS Cloud</span>
+            <span class="chip">REST / OData</span>
+            <span class="chip">OAuth 2.0</span>
+            <span class="chip">IAM Client</span>
+          </div>
+          <button class="project__play" data-video="assets/ifs-debug-console-demo-v2.mp4"
+                  data-poster="assets/ifs-debug-console-poster-v2.jpg"
+                  aria-label="Watch the demo video, 4 minutes 46 seconds">
+            <img src="assets/ifs-debug-console-poster-v2.jpg" alt="" loading="lazy" />
+            <span class="project__play-icon" aria-hidden="true">▶</span>
+            <span class="project__play-caption">
+              <strong>Watch the demo</strong> · 4:46
+              <small>Field metadata · SQL editor · PL/SQL · Events · Projection trace</small>
+            </span>
+          </button>
         </div>
-        <p class="project__desc">
-          A Chrome extension I built in my spare time (with some AI help along the way) that adds a debug
-          side panel to IFS Cloud. It signs in via OAuth (Authorization Code + PKCE) through an IAM client
-          and runs entirely on IFS REST services.
-        </p>
-        <p class="project__desc">
-          It includes an API console with metadata-driven suggestions, a field inspector that shows the
-          actual database column and view behind any field on screen, a read-only SQL editor, a network
-          trace that surfaces the real PL/SQL error stack behind failed OData calls, and a projection
-          tracer that maps out every sub-page tied to a record.
-        </p>
-        <div class="chips">
-          <span class="chip">Chrome Extension</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">IFS Cloud</span>
-          <span class="chip">REST / OData</span>
-          <span class="chip">OAuth 2.0</span>
-          <span class="chip">IAM Client</span>
-        </div>
-        <button class="project__play" data-video="assets/ifs-debug-console-demo-v2.mp4"
-                data-poster="assets/ifs-debug-console-poster-v2.jpg"
-                aria-label="Watch the demo video, 4 minutes 46 seconds">
-          <img src="assets/ifs-debug-console-poster-v2.jpg" alt="" loading="lazy" />
-          <span class="project__play-icon" aria-hidden="true">▶</span>
-          <span class="project__play-caption">
-            <strong>Watch the demo</strong> · 4:46
-            <small>Field metadata · SQL editor · PL/SQL · Events · Projection trace</small>
-          </span>
-        </button>
-      </div>
 
-      <div class="project reveal">
-        <div class="project__top">
-          <h3 class="project__title">IFS Data Migration Tool</h3>
-          <span class="project__status">In development</span>
+        <div class="project reveal">
+          <div class="project__top">
+            <h3 class="project__title">IFS Data Migration Tool</h3>
+            <span class="project__status">In development</span>
+          </div>
+          <p class="project__desc">
+            A local app I built to restore basic data after an IFS environment refresh. It connects to two IFS
+            Cloud environments at once via OAuth — pulling records from a source (say UAT) and pushing them into
+            a target (DEV or CFG) — so you don't have to manually re-key everything you lost after a refresh.
+          </p>
+          <p class="project__desc">
+            The whole thing runs off the IFS data dictionary: you pick a component, pick an entity, and it shows
+            you which projections expose it along with their allowed operations. Before posting, records get
+            validated against the projection's OpenAPI spec, and each row comes back with its own success or
+            error result so you know exactly what went through and what didn't.
+          </p>
+          <p class="project__desc">
+            It also runs a dependency check before writing anything — making sure referenced values like
+            customers, sites, and delivery terms actually exist in the target, and telling you what's missing so
+            you can migrate that first. And there's a safety lock built in that only allows writes to DEV or CFG
+            environments — so UAT and production stay protected, even if someone tries a manual request.
+          </p>
+          <div class="chips">
+            <span class="chip">Node.js</span>
+            <span class="chip">Zero dependencies</span>
+            <span class="chip">IFS Cloud</span>
+            <span class="chip">REST / OData</span>
+            <span class="chip">OAuth 2.0</span>
+            <span class="chip">IAM Client</span>
+          </div>
+          <p class="project__note">🎬 Demo video coming soon.</p>
         </div>
-        <p class="project__desc">
-          A local app I built to restore basic data after an IFS environment refresh. It connects to two IFS
-          Cloud environments at once via OAuth — pulling records from a source (say UAT) and pushing them into
-          a target (DEV or CFG) — so you don't have to manually re-key everything you lost after a refresh.
-        </p>
-        <p class="project__desc">
-          The whole thing runs off the IFS data dictionary: you pick a component, pick an entity, and it shows
-          you which projections expose it along with their allowed operations. Before posting, records get
-          validated against the projection's OpenAPI spec, and each row comes back with its own success or
-          error result so you know exactly what went through and what didn't.
-        </p>
-        <p class="project__desc">
-          It also runs a dependency check before writing anything — making sure referenced values like
-          customers, sites, and delivery terms actually exist in the target, and telling you what's missing so
-          you can migrate that first. And there's a safety lock built in that only allows writes to DEV or CFG
-          environments — so UAT and production stay protected, even if someone tries a manual request.
-        </p>
-        <div class="chips">
-          <span class="chip">Node.js</span>
-          <span class="chip">Zero dependencies</span>
-          <span class="chip">IFS Cloud</span>
-          <span class="chip">REST / OData</span>
-          <span class="chip">OAuth 2.0</span>
-          <span class="chip">IAM Client</span>
-        </div>
-        <p class="project__note">🎬 Demo video coming soon.</p>
       </div>
     </section>
 

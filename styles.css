@@ -429,15 +429,17 @@ img { max-width: 100%; display: block; }
 }
 
 /* ---------- Projects ---------- */
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .project {
+  display: flex; flex-direction: column;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 1.8rem 2rem;
   transition: transform 0.3s var(--ease), border-color 0.3s;
 }
-.project + .project { margin-top: 2.5rem; }
+.project .chips { margin-bottom: 1.3rem; }
 .project__note {
   font-size: 0.85rem; color: var(--text-dim);
-  margin-top: 1.3rem; padding-top: 1.1rem;
+  margin-top: auto; padding-top: 1.1rem;
   border-top: 1px solid var(--border);
 }
 .project:hover { transform: translateY(-4px); border-color: var(--accent); }
@@ -454,7 +456,7 @@ img { max-width: 100%; display: block; }
 .project__desc { color: var(--text-mut); font-size: 0.97rem; margin-bottom: 1rem; max-width: 50rem; }
 .project__play {
   position: relative; display: block; width: min(560px, 100%);
-  margin-top: 1.3rem; padding: 0;
+  margin-top: auto; padding: 0;
   border: 1px solid var(--border); border-radius: var(--radius-sm);
   overflow: hidden; cursor: pointer; background: none;
   text-align: left; color: var(--text); font: inherit;
@@ -612,6 +614,7 @@ a.contact__item:hover { transform: translateY(-3px); border-color: var(--accent)
   .stats { grid-template-columns: repeat(2, 1fr); }
   .skills { grid-template-columns: 1fr; }
   .certs { grid-template-columns: 1fr; }
+  .projects { grid-template-columns: 1fr; gap: 2rem; }
 
   .nav__links {
     position: fixed; inset: 0 0 0 auto;
