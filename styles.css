@@ -302,11 +302,8 @@ img { max-width: 100%; display: block; }
 .stat__label { font-size: 0.85rem; color: var(--text-mut); }
 
 /* ---------- About ---------- */
-.about__body {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1rem 3rem;
-}
-.about__body p { color: var(--text-mut); margin: 0; font-size: 1.05rem; }
+.about__body p { color: var(--text-mut); margin-bottom: 1.1rem; font-size: 1.05rem; }
+.about__body p:last-child { margin-bottom: 0; }
 
 /* ---------- Timeline ---------- */
 .timeline { position: relative; padding-left: 2rem; }
@@ -618,7 +615,6 @@ a.contact__item:hover { transform: translateY(-3px); border-color: var(--accent)
   .skills { grid-template-columns: 1fr; }
   .certs { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr; gap: 2rem; }
-  .about__body { grid-template-columns: 1fr; gap: 1.1rem; }
 
   .nav__links {
     position: fixed; inset: 0 0 0 auto;
