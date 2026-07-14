@@ -368,12 +368,15 @@
           <span class="project__status">In development · Chrome Extension</span>
         </div>
         <p class="project__desc">
-          A Chrome extension that adds a debug side panel to IFS Cloud, built in my spare time with
-          AI-assisted development. It signs in through an IAM client using OAuth (Authorization Code + PKCE)
-          and works entirely over IFS REST services — an API console with metadata-driven suggestions,
-          a field inspector that shows the real database column and view behind any field on the page,
-          a read-only SQL editor, a network trace that surfaces the PL/SQL error stack behind failed
-          OData calls, and a projection tracer that maps every sub-page of a record.
+          A Chrome extension I built in my spare time (with some AI help along the way) that adds a debug
+          side panel to IFS Cloud. It signs in via OAuth (Authorization Code + PKCE) through an IAM client
+          and runs entirely on IFS REST services.
+        </p>
+        <p class="project__desc">
+          It includes an API console with metadata-driven suggestions, a field inspector that shows the
+          actual database column and view behind any field on screen, a read-only SQL editor, a network
+          trace that surfaces the real PL/SQL error stack behind failed OData calls, and a projection
+          tracer that maps out every sub-page tied to a record.
         </p>
         <div class="chips">
           <span class="chip">Chrome Extension (MV3)</span>
@@ -383,14 +386,14 @@
           <span class="chip">OAuth 2.0 (PKCE)</span>
           <span class="chip">IAM (Keycloak)</span>
         </div>
-        <video class="project__media" controls muted loop playsinline preload="none"
-               poster="assets/ifs-debug-console-poster.jpg">
-          <source src="assets/ifs-debug-console-demo.mp4" type="video/mp4" />
-        </video>
-        <p class="project__note">
-          Demo: entity → views → columns and package → method drill-downs, with full SQL signatures
-          and typed arguments. Recorded against a demo environment.
-        </p>
+        <button class="project__play" data-video="assets/ifs-debug-console-demo.mp4"
+                data-poster="assets/ifs-debug-console-poster.jpg">
+          <span class="project__play-icon" aria-hidden="true">▶</span>
+          <span>
+            <strong>Watch the demo</strong>
+            <small>4:46 · Field metadata, SQL editor, PL/SQL, Events, Projection trace</small>
+          </span>
+        </button>
       </div>
     </section>
 
@@ -512,6 +515,15 @@
     <p>© <span id="year"></span> Ugatharshan Murugesu · Built with care in Dubai</p>
     <a href="#home" class="footer__top">Back to top ↑</a>
   </footer>
+
+  <!-- Video lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project demo video" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__inner">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close video">&times;</button>
+      <video class="lightbox__video" id="lightboxVideo" controls playsinline></video>
+    </div>
+  </div>
 
   <script src="script.js"></script>
   <!-- GoatCounter analytics — privacy-friendly, no cookies -->

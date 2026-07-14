@@ -111,6 +111,44 @@
     statNums.forEach((el) => statIo.observe(el));
   }
 
+  /* --- Video lightbox --- */
+  const lightbox = document.getElementById("lightbox");
+  const lbVideo = document.getElementById("lightboxVideo");
+  const lbClose = document.getElementById("lightboxClose");
+  const playBtns = document.querySelectorAll(".project__play");
+
+  if (lightbox && lbVideo) {
+    const openLightbox = (src, poster) => {
+      lbVideo.src = src;                 // only fetched when opened
+      if (poster) lbVideo.poster = poster;
+      lightbox.hidden = false;
+      document.body.classList.add("lightbox-open");
+      lbClose.focus();
+      lbVideo.play().catch(() => {});    // autoplay may be blocked; controls remain
+    };
+
+    const closeLightbox = () => {
+      lbVideo.pause();
+      lbVideo.removeAttribute("src");
+      lbVideo.load();                    // free the buffer
+      lightbox.hidden = true;
+      document.body.classList.remove("lightbox-open");
+    };
+
+    playBtns.forEach((btn) =>
+      btn.addEventListener("click", () =>
+        openLightbox(btn.dataset.video, btn.dataset.poster)
+      )
+    );
+    lbClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target.hasAttribute("data-close")) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

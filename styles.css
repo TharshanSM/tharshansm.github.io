@@ -446,11 +446,53 @@ img { max-width: 100%; display: block; }
   padding: 0.3rem 0.85rem; white-space: nowrap;
 }
 .project__desc { color: var(--text-mut); font-size: 0.97rem; margin-bottom: 1rem; max-width: 50rem; }
-.project__media {
-  width: 100%; margin-top: 1.2rem;
-  border-radius: var(--radius-sm); border: 1px solid var(--border);
+.project__play {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: 1.3rem; padding: 0.9rem 1.4rem 0.9rem 1rem;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); cursor: pointer; text-align: left;
+  color: var(--text); font: inherit;
+  transition: transform 0.25s var(--ease), border-color 0.25s, background 0.25s;
 }
-.project__note { font-size: 0.85rem; color: var(--text-dim); margin-top: 1rem; }
+.project__play:hover {
+  transform: translateY(-2px); border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.project__play-icon {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-size: 0.9rem; padding-left: 3px;
+}
+.project__play strong { display: block; font-size: 0.98rem; font-weight: 600; }
+.project__play small { display: block; color: var(--text-dim); font-size: 0.82rem; margin-top: 0.15rem; }
+
+/* ---------- Video lightbox ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 1.5rem; }
+.lightbox[hidden] { display: none; }
+.lightbox__backdrop {
+  position: absolute; inset: 0;
+  background: rgba(5, 7, 10, 0.88); backdrop-filter: blur(6px);
+  animation: fadeIn 0.25s var(--ease);
+}
+.lightbox__inner {
+  position: relative; width: min(1100px, 100%);
+  animation: popIn 0.28s var(--ease);
+}
+.lightbox__video {
+  width: 100%; display: block; border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow); background: #000;
+}
+.lightbox__close {
+  position: absolute; top: -2.6rem; right: 0;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  font-size: 1.35rem; line-height: 1; cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.lightbox__close:hover { border-color: var(--accent); color: var(--accent-2); }
+body.lightbox-open { overflow: hidden; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
 
 /* ---------- Two-column (edu + strengths) ---------- */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
