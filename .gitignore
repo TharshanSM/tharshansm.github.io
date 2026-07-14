@@ -1,13 +1,12 @@
-# Original full-size photos — only the optimized -web versions get committed
-assets/graduation.jpg
-
-# Backup of the pre-rebuild CV (local only)
-assets/Ugatharshan_Murugesu_CV_original.pdf
-
-# Raw screen recordings — NEVER commit. May contain customer data / hostnames.
-# Only a reviewed, redacted demo clip may be added, explicitly.
+# Raw screen recordings — NEVER commit. They expose the customer IFS hostname
+# and, in REST/Network views, embed it inside scrolling response JSON.
+# Only a reviewed, redacted clip may be added, and it must be listed explicitly below.
 assets/*.mp4
 assets/*.mkv
 assets/*.mov
 assets/*.webm
 !assets/ifs-debug-console-demo-v2.mp4
+
+# Large originals live in D:\Portfolio Masters, not in the repo
+assets/*.JPG
+assets/*_original.pdf

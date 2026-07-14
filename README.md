@@ -1,74 +1,28 @@
 # Ugatharshan Murugesu — Portfolio
 
-A modern, single-page, dark-themed portfolio website. Pure HTML/CSS/JS — no build
-step, no dependencies — so it hosts for free on GitHub Pages.
+Single-page, dark-themed portfolio. Pure HTML/CSS/JS — no build step, no
+dependencies — deployed free on GitHub Pages.
+
+**Live:** https://tharshansm.github.io
+**Analytics:** https://tharshansm.goatcounter.com (GoatCounter, no cookies)
 
 ```
-├── index.html      ← all the content/sections
+├── index.html      ← the site (all sections)
+├── cv.html         ← the CV source → rendered to assets/…CV.pdf
 ├── styles.css      ← dark theme + copper accent
-├── script.js       ← nav, scroll animations, mobile menu
+├── script.js       ← nav, scroll reveals, stat count-up, video lightbox
+├── .nojekyll       ← skip GitHub's Jekyll build
 └── assets/
-    ├── Ugatharshan_Murugesu_CV.pdf   ← add this (the CV download links to it)
-    └── profile.jpg                    ← optional photo
+    ├── Ugatharshan_Murugesu_CV.pdf      ← generated from cv.html (do not edit by hand)
+    ├── profile.jpg, graduation-web.jpg  ← photos (web-optimised)
+    ├── favicon.svg, favicon-32.png, apple-touch-icon.png
+    ├── og-image.png                     ← link preview card (1200×630)
+    └── ifs-debug-console-demo-v2.mp4    ← project demo + its poster
 ```
 
-## Before you publish
+## Deploying
 
-1. **Add your CV**: copy your PDF into `assets/` and name it
-   `Ugatharshan_Murugesu_CV.pdf` (or rename it and update the two "Download CV"
-   links in `index.html`).
-2. **Add your photo** (optional): drop `profile.jpg` into `assets/` and swap the
-   monogram for an `<img>` — see `assets/README.txt` for the exact line.
-
-## Preview locally
-
-Just double-click `index.html`, or from this folder run:
-
-```powershell
-python -m http.server 8000
-# then open http://localhost:8000
-```
-
----
-
-## Host it on GitHub Pages (free)
-
-### One-time setup
-
-1. Create a **free GitHub account** at https://github.com (if you don't have one).
-2. Create a **new repository**. To get the nicest URL, name it exactly:
-   **`tharshansm.github.io`** (replace `tharshansm` with *your* GitHub username).
-   Keep it **Public**. Don't add a README (this folder already has one).
-
-### Push this folder (run in PowerShell, from `d:\Portfolio Website`)
-
-```powershell
-git init
-git add .
-git commit -m "Initial portfolio site"
-git branch -M main
-git remote add origin https://github.com/tharshansm/tharshansm.github.io.git
-git push -u origin main
-```
-
-> Replace `tharshansm` with your GitHub username in the remote URL.
-> On the first push GitHub will ask you to sign in (a browser window pops up).
-
-### Turn on Pages
-
-1. On GitHub, open your repo → **Settings** → **Pages** (left sidebar).
-2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-3. Branch: **main**, folder: **/ (root)** → **Save**.
-4. Wait ~1 minute, then visit:
-
-   **https://tharshansm.github.io**
-
-   (If you named the repo something else, e.g. `portfolio`, the URL will be
-   `https://tharshansm.github.io/portfolio/` instead.)
-
-### Updating the site later
-
-Any time you change a file:
+Push to `main` — GitHub Pages redeploys within a minute.
 
 ```powershell
 git add .
@@ -76,12 +30,37 @@ git commit -m "Describe what changed"
 git push
 ```
 
-GitHub Pages redeploys automatically within a minute or so.
+## The CV
 
----
+`cv.html` is the source of truth. Edit it, then re-render the PDF with headless Edge:
+
+```powershell
+& "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" `
+  --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=10000 `
+  --print-to-pdf="assets\Ugatharshan_Murugesu_CV.pdf" "file:///d:/Portfolio Website/cv.html"
+```
+
+Keep it to **two pages** — condense wording rather than letting it spill to a third.
+The "Download CV" links serve this PDF, so the site updates automatically.
+
+## Demo videos
+
+⚠️ **Recordings of a real IFS environment must never be committed raw.** They expose the
+customer hostname, and REST/Network views embed it inside scrolling response JSON. Raw
+recordings are gitignored; only a reviewed, redacted clip is published.
+
+The current demo was cut with ffmpeg from a raw recording: five safe segments concatenated,
+with a blur over the panel header hostname, then verified frame-by-frame before publishing.
+
+**When replacing a video, bump the filename** (`…-demo-v2.mp4` → `-v3`). Browsers and the
+GitHub CDN cache video files aggressively; reusing a filename serves the old clip.
+
+## Master files
+
+Large originals (raw recordings, full-size photos, the pre-rebuild CV) live **outside**
+this repo in `D:\Portfolio Masters` — keep them, they're the source for any future re-cut.
 
 ## Customising
 
-- **Accent colour**: edit the `--accent`, `--accent-2`, `--accent-3` variables at
-  the top of `styles.css`.
-- **Text/sections**: everything lives in `index.html` — plain, well-commented HTML.
+- **Accent colour**: the `--accent*` variables at the top of `styles.css`.
+- **Content**: all in `index.html`, plain commented HTML.
