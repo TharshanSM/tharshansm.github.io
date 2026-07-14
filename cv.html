@@ -238,16 +238,25 @@
         <h2 class="sec__title">Projects</h2>
         <div class="skillgroup">
           <h3>IFS Debug Extension</h3>
-          <p class="proj__status">Personal project · In development</p>
+          <p class="proj__status">Chrome extension · In development</p>
           <p>
-            A Chrome extension I built in my spare time that adds a debug side panel to IFS Cloud. Signs in
-            via OAuth through an IAM client and runs entirely on IFS REST services. Includes an API console,
-            a field inspector that shows the real database column and view behind any field on screen, a
-            read-only SQL editor, a network trace that surfaces the PL/SQL error stack behind failed OData
-            calls, and a projection tracer.
+            A debug side panel for IFS Cloud. OAuth via IAM client, runs entirely on IFS REST. API console,
+            field inspector (real DB column and view behind any field), read-only SQL editor, network trace
+            exposing the PL/SQL error stack behind failed OData calls, and a projection tracer.
           </p>
           <p class="proj__demo">
             Demo: <a class="proj__link" href="https://tharshansm.github.io/#demo">tharshansm.github.io/#demo</a>
+          </p>
+        </div>
+
+        <div class="skillgroup">
+          <h3>IFS Data Migration Tool</h3>
+          <p class="proj__status">Node.js · In development</p>
+          <p>
+            Restores data after an IFS environment refresh. Connects to two IFS Cloud environments over OAuth,
+            reading records from a source and posting them to a target. Driven by the IFS data dictionary,
+            with record cleaning against the projection's OpenAPI document, a dependency pre-flight, and a
+            safety lock limiting writes to DEV/CFG.
           </p>
         </div>
       </section>

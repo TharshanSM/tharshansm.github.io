@@ -434,6 +434,7 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius); padding: 1.8rem 2rem;
   transition: transform 0.3s var(--ease), border-color 0.3s;
 }
+.project + .project { margin-top: 1.5rem; }
 .project:hover { transform: translateY(-4px); border-color: var(--accent); }
 .project__top {
   display: flex; align-items: center; justify-content: space-between;
