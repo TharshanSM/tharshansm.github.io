@@ -5,8 +5,11 @@ assets/*.mp4
 assets/*.mkv
 assets/*.mov
 assets/*.webm
-!assets/ifs-debug-console-demo-v2.mp4
+!assets/ifs-debug-console-demo-v3.mp4
 
-# Large originals live in D:\Portfolio Masters, not in the repo
+# Large originals live in D:\Portfolio Masters, not in the repo.
+# NOTE: Git is case-insensitive on Windows, so *.JPG also matches *.jpg —
+# the debug-console poster is a real committed asset, so allow it explicitly.
 assets/*.JPG
+!assets/ifs-debug-console-poster-v3.jpg
 assets/*_original.pdf

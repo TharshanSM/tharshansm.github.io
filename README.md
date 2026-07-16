@@ -17,7 +17,7 @@ dependencies — deployed free on GitHub Pages.
     ├── profile.jpg, graduation-web.jpg  ← photos (web-optimised)
     ├── favicon.svg, favicon-32.png, apple-touch-icon.png
     ├── og-image.png                     ← link preview card (1200×630)
-    └── ifs-debug-console-demo-v2.mp4    ← project demo + its poster
+    └── ifs-debug-console-demo-v3.mp4    ← project demo + its poster
 ```
 
 ## Deploying
@@ -52,7 +52,7 @@ recordings are gitignored; only a reviewed, redacted clip is published.
 The current demo was cut with ffmpeg from a raw recording: five safe segments concatenated,
 with a blur over the panel header hostname, then verified frame-by-frame before publishing.
 
-**When replacing a video, bump the filename** (`…-demo-v2.mp4` → `-v3`). Browsers and the
+**When replacing a video, bump the filename** (`…-demo-v3.mp4` → `-v4`). Browsers and the
 GitHub CDN cache video files aggressively; reusing a filename serves the old clip.
 
 ## Master files
