@@ -156,6 +156,21 @@
     });
   }
 
+  /* --- Count CV downloads as GoatCounter events ---
+     The PDF can't report on itself (no JS in a PDF), and the download
+     attribute means no page load either, so the click is counted here. */
+  document.querySelectorAll('a[href$="CV.pdf"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({
+          path: "cv-download",
+          title: "CV downloaded",
+          event: true,
+        });
+      }
+    });
+  });
+
   /* --- Footer year --- */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
