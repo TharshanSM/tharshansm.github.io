@@ -9,6 +9,14 @@
   const navLinks = document.getElementById("navLinks");
   const links = document.querySelectorAll(".nav__link");
 
+  /* --- Analytics helper ---
+     GoatCounter loads async and may be blocked, so always guard. */
+  const track = (path, title) => {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: path, title: title, event: true });
+    }
+  };
+
   /* --- Sticky nav background on scroll --- */
   const onScroll = () => {
     nav.classList.toggle("scrolled", window.scrollY > 20);
@@ -118,14 +126,39 @@
   const playBtns = document.querySelectorAll(".project__play");
 
   if (lightbox && lbVideo) {
-    const openLightbox = (src, poster) => {
-      lbVideo.src = src;                 // only fetched when opened
-      if (poster) lbVideo.poster = poster;
+    // Which demo is open, and which of its events have already been sent.
+    // Reset per open so each viewing is counted once, not once per second.
+    let demoName = "demo";
+    let sentPlay = false;
+    let sentWatched = false;
+
+    const openLightbox = (btn) => {
+      demoName = btn.dataset.track || "demo";
+      sentPlay = false;
+      sentWatched = false;
+      lbVideo.src = btn.dataset.video;   // only fetched when opened
+      if (btn.dataset.poster) lbVideo.poster = btn.dataset.poster;
       lightbox.hidden = false;
       document.body.classList.add("lightbox-open");
       lbClose.focus();
       lbVideo.play().catch(() => {});    // autoplay may be blocked; controls remain
     };
+
+    /* Count a real play, not just the click — autoplay can be blocked,
+       and someone may open the lightbox without ever starting it. */
+    lbVideo.addEventListener("play", () => {
+      if (sentPlay) return;
+      sentPlay = true;
+      track(demoName + "-play", "Demo played");
+    });
+
+    /* A 16-minute demo makes "opened" a weak signal, so also record who
+       actually stayed. Fires once, after a full minute of watching. */
+    lbVideo.addEventListener("timeupdate", () => {
+      if (sentWatched || lbVideo.currentTime < 60) return;
+      sentWatched = true;
+      track(demoName + "-watched-1min", "Demo watched 1+ min");
+    });
 
     const closeLightbox = () => {
       lbVideo.pause();
@@ -136,15 +169,14 @@
     };
 
     playBtns.forEach((btn) =>
-      btn.addEventListener("click", () =>
-        openLightbox(btn.dataset.video, btn.dataset.poster)
-      )
+      btn.addEventListener("click", () => openLightbox(btn))
     );
     // Deep link: /#demo (e.g. from the CV) scrolls to Projects and opens the video
     if (window.location.hash === "#demo" && playBtns.length) {
       const btn = playBtns[0];
       document.getElementById("projects")?.scrollIntoView();
-      setTimeout(() => openLightbox(btn.dataset.video, btn.dataset.poster), 400);
+      setTimeout(() => openLightbox(btn), 400);
+      track("demo-from-cv", "Demo opened from CV link");
     }
 
     lbClose.addEventListener("click", closeLightbox);
@@ -156,19 +188,11 @@
     });
   }
 
-  /* --- Count CV downloads as GoatCounter events ---
+  /* --- Count CV downloads ---
      The PDF can't report on itself (no JS in a PDF), and the download
      attribute means no page load either, so the click is counted here. */
   document.querySelectorAll('a[href$="CV.pdf"]').forEach((link) => {
-    link.addEventListener("click", () => {
-      if (window.goatcounter && window.goatcounter.count) {
-        window.goatcounter.count({
-          path: "cv-download",
-          title: "CV downloaded",
-          event: true,
-        });
-      }
-    });
+    link.addEventListener("click", () => track("cv-download", "CV downloaded"));
   });
 
   /* --- Footer year --- */
