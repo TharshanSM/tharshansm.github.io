@@ -268,15 +268,14 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow);
   animation: float 5s ease-in-out infinite;
 }
-.hero__badge--1 { top: 7%; left: -7%; animation-delay: 0s; }        /* IFS Cloud */
-.hero__badge--2 { bottom: 13%; right: -8%; animation-delay: 1.2s; } /* Node.js */
-.hero__badge--3 { bottom: -4%; left: 8%; animation-delay: 2.4s; }   /* Novacura Flow */
-.hero__badge--4 { top: -6%; right: 6%; animation-delay: 0.6s; }     /* IFS App 10 */
-.hero__badge--5 { top: 34%; right: -12%; animation-delay: 1.8s; }   /* Integrations */
-.hero__badge--6 { top: 38%; left: -12%; animation-delay: 3s; }      /* Configurations */
-.hero__badge--7 { top: 66%; left: -9%; animation-delay: 3.6s; }     /* Modifications */
-.hero__badge--8 { bottom: -7%; right: 22%; animation-delay: 4.2s; } /* Reports */
-.hero__badge--9 { top: -3%; left: 26%; animation-delay: 2s; }       /* IFS Workflows */
+.hero__badge--1 { top: 6%; left: -7%; animation-delay: 0s; }        /* IFS Cloud */
+.hero__badge--2 { top: -5%; left: 24%; animation-delay: 2s; }       /* IFS Workflows */
+.hero__badge--3 { top: -6%; right: 4%; animation-delay: 0.6s; }     /* Data Migration */
+.hero__badge--4 { top: 31%; right: -10%; animation-delay: 1.8s; }   /* REST Integrations */
+.hero__badge--5 { top: 31%; left: -11%; animation-delay: 3s; }      /* IFS CRIMs */
+.hero__badge--6 { bottom: 15%; right: -9%; animation-delay: 1.2s; } /* JavaScript (Node.js) */
+.hero__badge--7 { bottom: -5%; left: 16%; animation-delay: 2.4s; }  /* Novacura Flow & Connect */
+.hero__badge--8 { bottom: 15%; left: -9%; animation-delay: 3.6s; }  /* Permission Sets */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
@@ -634,8 +633,11 @@ a.contact__item:hover { transform: translateY(-3px); border-color: var(--accent)
 }
 
 @media (max-width: 560px) {
-  /* keep the corners, hide the side/edge badges so phones stay clean */
-  .hero__badge--5, .hero__badge--6, .hero__badge--7, .hero__badge--8 { display: none; }
+  /* Portrait fills the width on phones, so wide edge badges get clipped.
+     Keep the centered ones that fit; pull IFS Cloud inside the frame. */
+  .hero__badge--3, .hero__badge--4, .hero__badge--5,
+  .hero__badge--6, .hero__badge--8 { display: none; }
+  .hero__badge--1 { top: 4%; left: 3%; }
 }
 
 @media (max-width: 480px) {
