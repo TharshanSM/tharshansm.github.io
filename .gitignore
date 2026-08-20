@@ -12,4 +12,5 @@ assets/*.webm
 # the debug-console poster is a real committed asset, so allow it explicitly.
 assets/*.JPG
 !assets/ifs-debug-console-poster-v3.jpg
+!assets/profile-cv.jpg
 assets/*_original.pdf
